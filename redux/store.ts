@@ -1,4 +1,4 @@
-import {  Store } from 'redux';
+import { Store } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { MakeStore, createWrapper, Context } from 'next-redux-wrapper';
 import createSagaMiddleware, { Task } from 'redux-saga';
@@ -10,7 +10,6 @@ export interface SagaStore extends Store {
 }
 
 export const makeStore: MakeStore<State> = (context: Context) => {
-
   const sagaMiddleware = createSagaMiddleware();
 
   const store = configureStore({
@@ -24,4 +23,4 @@ export const makeStore: MakeStore<State> = (context: Context) => {
   return store;
 };
 
-export const wrapper = createWrapper<State>(makeStore, { debug: true });
+export const wrapper = createWrapper<State>(makeStore, { debug: false });

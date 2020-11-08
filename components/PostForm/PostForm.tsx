@@ -35,7 +35,7 @@ const StyledLabel = styled.label`
 
 const StyledFactParagraph = styled.p`
   margin: 0;
-  padding: 0;
+  padding: 4px;
   font-size: 16px;
   background-color: #ffebcd;
   border-radius: 8px;
