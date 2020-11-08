@@ -17,13 +17,14 @@ interface SinglePostProps {
   post: SinglePostWithComments;
 }
 
-const SinglePost = ({post}:SinglePostProps)=>{
-  return <article>
-    <StyledTitle>{post.title}</StyledTitle>
-    <StyledImage src='/nature.jpg' />
-    <p>{post.body}</p>
-  </article>
+const SinglePost = ({ post }: SinglePostProps) => {
+  return (
+    <article>
+      <StyledTitle>{post.title}</StyledTitle>
+      <StyledImage src="/nature.jpg" />
+      <p>{post.body}</p>
+    </article>
+  );
+};
 
-}
-
-export default SinglePost
+export default SinglePost;

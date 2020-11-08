@@ -1,9 +1,9 @@
-export const BASE_URL = 'https://simple-blog-api.crew.red'
+export const BASE_URL = 'https://simple-blog-api.crew.red';
 
 export const URL_PATHs = {
-  POSTS :{
+  POSTS: {
     ALL_POSTS: '/posts',
-    createPostURL: (id)=> `/posts/${id}`,
-    createPostURLWithComments : (id)=> `/posts/${id}?_embed=comments`
-  }
-}
+    createPostURL: id => `/posts/${id}`,
+    createPostURLWithComments: id => `/posts/${id}?_embed=comments`,
+  },
+};

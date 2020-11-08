@@ -1,9 +1,9 @@
 export default {
-  HOME : {
-    INDEX : '/'
+  HOME: {
+    INDEX: '/',
   },
-  POSTS:{
-    NEW_POSTS : '/posts/new',
-    createPostPath : (id)=>`/posts/${id}`,
-  }
-}
+  POSTS: {
+    NEW_POSTS: '/posts/new',
+    createPostPath: id => `/posts/${id}`,
+  },
+};

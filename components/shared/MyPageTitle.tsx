@@ -6,8 +6,7 @@ interface MyPageTitleProps {
 const Title = styled.h1`
   font-size: 30px;
   text-align: center;
-  color: ${({ theme }) => theme.colors.secondMain};
-  text-decoration: underline;
+  color: ${({ theme }) => theme.colors.firstMain};
 `;
 
 const MyPageTitle = ({ title }: MyPageTitleProps) => {

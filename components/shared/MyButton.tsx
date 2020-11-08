@@ -4,7 +4,7 @@ const MyButton = styled.button.attrs(({ theme, ...props }) => ({
   disabled: props.disabled || false,
 }))`
   border: ${({ theme }) => `2px solid ${theme.colors.secondMain}`};
-  border-radius: 80px;
+  border-radius: 8px;
   width: 180px;
   height: 40px;
   background-color: #fff;
@@ -17,13 +17,13 @@ const MyButton = styled.button.attrs(({ theme, ...props }) => ({
     background-color: ${({ theme }) => theme.colors.firstMain};
     color: #fff;
   }
-  
+
   &:disabled,
-  &[disabled]{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
-}
+  &[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
 `;
 
 export default MyButton;

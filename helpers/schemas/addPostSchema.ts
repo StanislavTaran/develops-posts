@@ -1,6 +1,5 @@
 import { object, string } from 'yup';
 
-
 const addPostSchema = object().shape({
   title: string()
     .min(3, 'Title must be at least 3 characters!')

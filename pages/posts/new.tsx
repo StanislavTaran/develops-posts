@@ -4,7 +4,6 @@ import pageTitles from '../../constants/pageTitles';
 import AddPostForm from '../../components/PostForm/PostForm';
 import { SinglePostWithoutId } from '../../types/postsTypes';
 import * as postsActions from '../../redux/posts/postsActions';
-import { fetchFactAbouCats } from '../../api/catsAPI';
 import MyPageTitle from '../../components/shared/MyPageTitle';
 
 export default function NewPostPage() {

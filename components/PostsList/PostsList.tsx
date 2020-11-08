@@ -52,9 +52,9 @@ const PostsList = ({ posts }: PostListPropsType) => {
   return (
     <StyledList>
       {posts.map((post: SinglePost) => (
-        <Link href={routes.POSTS.createPostPath(post.id)}>
+        <Link href={routes.POSTS.createPostPath(post.id)} key={post.id}>
           <MyLink>
-            <StyledListItem key={post.id}>
+            <StyledListItem>
               <StyledTitle>{post.title}</StyledTitle>
               <StyledImage src="/nature.jpg" />
               <StyledParagraph>{post.body}</StyledParagraph>

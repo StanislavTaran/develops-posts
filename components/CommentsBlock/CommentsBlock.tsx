@@ -13,28 +13,27 @@ const StyledComment = styled.li`
 `;
 
 const StyledCommentBody = styled.p`
-color: ${({theme})=> theme.textColors.secondary}
+  color: ${({ theme }) => theme.textColors.secondary};
 `;
-
 
 interface CommentsBlockProps {
   comments: SingleComment[];
 }
 
 const CommentsBlock = ({ comments }: CommentsBlockProps) => {
-    const isComments = comments.length
+  const isComments = comments.length;
 
   return (
     <>
-      { <h4>{isComments ? 'Comments :' : "This post have no comments yet."}</h4> }
-    <StyledCommentsList>
-      {comments.map(com => (
-        <StyledComment>
-          <StyledCommentBody>{com.body}</StyledCommentBody>
-        </StyledComment>
-      ))}
-    </StyledCommentsList>
-      </>
+      {<h4>{isComments ? 'Comments :' : 'This post have no comments yet.'}</h4>}
+      <StyledCommentsList>
+        {comments.map(com => (
+          <StyledComment>
+            <StyledCommentBody>{com.body}</StyledCommentBody>
+          </StyledComment>
+        ))}
+      </StyledCommentsList>
+    </>
   );
 };
 

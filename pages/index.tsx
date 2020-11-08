@@ -14,8 +14,8 @@ interface LatestPostsPageProps {
 
 export default function LatestPotsPage({ posts }: LatestPostsPageProps) {
   return (
-    <MainLayout title={pageTitles.HOME}>
-      <MyPageTitle title='Latest posts for you.' />
+    <MainLayout title={pageTitles.HOME.INDEX}>
+      <MyPageTitle title="Latest posts for you." />
       <PostsList posts={posts} />
     </MainLayout>
   );
@@ -26,7 +26,7 @@ export const getServerSideProps = wrapper.getServerSideProps(async ({ store }) =
   await store.dispatch(postsActions.fetchPostsSuccess(response.data));
   return {
     props: {
-      posts : response.data
+      posts: response.data,
     },
   };
 });
