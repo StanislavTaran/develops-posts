@@ -13,18 +13,21 @@ const StyledList = styled.ul`
   padding: 0;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
 `;
 const StyledListItem = styled.li`
   margin: 5px 8px;
   padding: 6px;
   width: 300px;
+  height: 380px;
+  overflow: hidden;
   background-color: #fff;
   box-shadow: 10px 10px 5px -6px rgba(153, 150, 153, 1);
   display: flex;
   flex-flow: column;
   justify-content: start;
 `;
+
 const StyledTitle = styled.h3`
   color: #000;
 `;
@@ -57,7 +60,7 @@ const PostsList = ({ posts }: PostListPropsType) => {
             <StyledListItem>
               <StyledTitle>{post.title}</StyledTitle>
               <StyledImage src="/nature.jpg" />
-              <StyledParagraph>{post.body}</StyledParagraph>
+              <StyledParagraph>{`${post.body.slice(0,120)}...`}</StyledParagraph>
             </StyledListItem>
           </MyLink>
         </Link>
