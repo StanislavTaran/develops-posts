@@ -1,2 +1,2 @@
 import axios from 'axios';
-export const fetchFactAbouCats = axios.get('https://meowfacts.herokuapp.com/')
+export const fetchFactAboutCats =()=> axios.get('https://meowfacts.herokuapp.com/')

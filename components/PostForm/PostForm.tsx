@@ -1,10 +1,13 @@
+import { useEffect, useState } from 'react';
 import { Form, Formik } from 'formik';
 import styled from 'styled-components';
 import addPostSchema from '../../helpers/schemas/addPostSchema';
 import Input from '../shared/MyInput';
 import TextArea from '../shared/MyTextArea';
 import Button from '../shared/MyButton';
+import * as catsAPI from '../../api/catsAPI';
 import { SinglePostWithoutId } from '../../types/postsTypes';
+import { AxiosResponse } from 'axios';
 
 interface AddPostFormProps {
   initialState: SinglePostWithoutId;
@@ -30,7 +33,29 @@ const StyledLabel = styled.label`
   font-weight: 700;
 `;
 
+const StyledFactParagraph = styled.p`
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  background-color: #ffebcd;
+  border-radius: 8px;
+  text-align: center;
+  font-style: italic;
+  color: ${({ theme }) => theme.colors.secondMain};
+`;
+
 export default function AddPostForm({ initialState, handleSubmit }: AddPostFormProps) {
+  const [fact, setFact] = useState<string>('');
+
+  const handleSetFact = async () => {
+    const res: AxiosResponse<{ data: string }> = await catsAPI.fetchFactAboutCats();
+    await setFact(res.data.data);
+  };
+
+  useEffect(() => {
+    handleSetFact();
+  }, []);
+
   return (
     <Formik
       initialValues={initialState}
@@ -38,7 +63,7 @@ export default function AddPostForm({ initialState, handleSubmit }: AddPostFormP
       onSubmit={async (values, { setSubmitting, resetForm }) => {
         await handleSubmit(values);
         await setSubmitting(false);
-        await(resetForm())
+        await resetForm();
       }}
     >
       {({ errors, touched, values, isSubmitting, handleChange, handleBlur, handleReset }) => (
@@ -69,7 +94,7 @@ export default function AddPostForm({ initialState, handleSubmit }: AddPostFormP
               onBlur={handleBlur}
             />
             <ErrorTitle>{errors.body ?? errors.body}</ErrorTitle>
-
+            {fact.length ? <StyledFactParagraph>{`Interesting fact: ${fact}`}</StyledFactParagraph> : null}
             <Button type="button" disabled={isSubmitting} onClick={handleReset}>
               Cancel changes
             </Button>

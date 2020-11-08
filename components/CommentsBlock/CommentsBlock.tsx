@@ -8,7 +8,7 @@ const StyledCommentsList = styled.ul`
 `;
 
 const StyledComment = styled.li`
-  margin: 0;
+  margin: 0 0 0 20px;
   padding: 0;
 `;
 
