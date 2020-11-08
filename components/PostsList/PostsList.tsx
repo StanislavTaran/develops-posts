@@ -1,8 +1,11 @@
-import {useEffect} from 'react'
-import {useDispatch} from 'react-redux'
+import { useEffect } from 'react';
+import Link from 'next/link';
+import MyLink from '../shared/MyLink';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { SinglePost } from '../../types/postsTypes';
-import * as postsActions from '../../redux/posts/postsActions'
+import routes from '../../constants/pageRoutes';
+import * as postsActions from '../../redux/posts/postsActions';
 
 const StyledList = styled.ul`
   list-style: none;
@@ -20,7 +23,14 @@ const StyledListItem = styled.li`
   box-shadow: 10px 10px 5px -6px rgba(153, 150, 153, 1);
   display: flex;
   flex-flow: column;
-  justify-content: space-around;
+  justify-content: start;
+`;
+const StyledTitle = styled.h3`
+  color: #000;
+`;
+
+const StyledParagraph = styled.p`
+  color: ${({ theme }) => theme.textColors.secondary};
 `;
 
 const StyledImage = styled.img`
@@ -34,20 +44,23 @@ type PostListPropsType = {
 };
 
 const PostsList = ({ posts }: PostListPropsType) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  useEffect(()=>{
-    dispatch(postsActions.fetchPostsSuccess(posts))
-  },[])
+  useEffect(() => {
+    dispatch(postsActions.fetchPostsSuccess(posts));
+  }, []);
   return (
     <StyledList>
       {posts.map((post: SinglePost) => (
-        <StyledListItem key={post.id}>
-          <h3>{post.title}</h3>
-          <StyledImage src='/nature.jpg' />
-          <p>{post.body}</p>
-
-        </StyledListItem>
+        <Link href={routes.POSTS.createPostPath(post.id)}>
+          <MyLink>
+            <StyledListItem key={post.id}>
+              <StyledTitle>{post.title}</StyledTitle>
+              <StyledImage src="/nature.jpg" />
+              <StyledParagraph>{post.body}</StyledParagraph>
+            </StyledListItem>
+          </MyLink>
+        </Link>
       ))}
     </StyledList>
   );

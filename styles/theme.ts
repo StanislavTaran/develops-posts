@@ -9,7 +9,7 @@ export const theme : DefaultTheme  = {
   },
   textColors :{
     main : '#fff',
-    secondary: '#353535'
+    secondary: '#727272'
   }
 }
 

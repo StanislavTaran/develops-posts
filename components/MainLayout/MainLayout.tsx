@@ -34,7 +34,7 @@ export default function MainLayout({ title, children }) {
           <MyLink>Latest Posts</MyLink>
         </Link>
         <Link href={routes.POSTS.NEW_POSTS}>
-          <MyLink>New Posts</MyLink>
+          <MyLink>Create Post</MyLink>
         </Link>
       </NavBar>
       <Main>{children}</Main>

@@ -3,7 +3,7 @@ export default {
     INDEX : 'Latest Posts'
   },
     POSTS:{
-      NEW_POSTS : 'New Posts',
+      NEW_POSTS : 'Create Post',
       createPostTitle : (title)=>`Post ${title}`,
     }
 }

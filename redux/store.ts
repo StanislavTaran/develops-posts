@@ -21,9 +21,9 @@ export const makeStore: MakeStore<State> = (context: Context) => {
     middleware: [sagaMiddleware],
     devTools: true,
   });
-  // 3: Run your sagas on server
+  // 3: Run sagas on server
   (store as SagaStore).sagaTask = sagaMiddleware.run(rootSaga);
-
+  // sagaMiddleware.run(rootSaga);
   // 4: now return the store:
   return store;
 };

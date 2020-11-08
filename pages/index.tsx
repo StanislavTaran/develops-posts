@@ -6,6 +6,7 @@ import { wrapper } from '../redux/store';
 import * as postsActions from '../redux/posts/postsActions';
 import { AxiosResponse } from 'axios';
 import { fetchAllPosts } from '../api/postsApi';
+import MyPageTitle from '../components/shared/MyPageTitle';
 
 interface LatestPostsPageProps {
   posts: SinglePost[];
@@ -14,6 +15,7 @@ interface LatestPostsPageProps {
 export default function LatestPotsPage({ posts }: LatestPostsPageProps) {
   return (
     <MainLayout title={pageTitles.HOME}>
+      <MyPageTitle title='Latest posts for you.' />
       <PostsList posts={posts} />
     </MainLayout>
   );
